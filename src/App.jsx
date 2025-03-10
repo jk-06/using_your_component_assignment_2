@@ -1,7 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import PostCard from './components/postcard'
 
 function App() {
 
@@ -30,9 +28,23 @@ function App() {
   ];
 
   return (
-    <>
-      
-    </>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+      }}
+    >
+      {initialPosts.map((post) => (
+        <PostCard
+          key={post.id}
+          profileImage={post.profileImage}
+          username={post.username}
+          content={post.content}
+          isLikedInitially={post.isLiked}
+        />
+      ))}
+    </div>
   )
 }
 
